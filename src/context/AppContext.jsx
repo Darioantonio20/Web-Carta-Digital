@@ -16,6 +16,7 @@ const ACTION_TYPES = {
   // UI actions
   SET_SEARCH_TERM: 'SET_SEARCH_TERM',
   SET_SELECTED_CATEGORY: 'SET_SELECTED_CATEGORY',
+  SET_SHOW_ALL_PRODUCTS: 'SET_SHOW_ALL_PRODUCTS',
   SET_LOADING: 'SET_LOADING',
   SET_ERROR: 'SET_ERROR',
   
@@ -28,6 +29,10 @@ const ACTION_TYPES = {
   
   // Recently viewed
   ADD_TO_RECENTLY_VIEWED: 'ADD_TO_RECENTLY_VIEWED',
+  
+  // Notifications
+  ADD_NOTIFICATION: 'ADD_NOTIFICATION',
+  REMOVE_NOTIFICATION: 'REMOVE_NOTIFICATION',
   
   // Initialize from localStorage
   INITIALIZE_FROM_STORAGE: 'INITIALIZE_FROM_STORAGE',
@@ -43,6 +48,7 @@ const initialState = {
   // UI state
   searchTerm: '',
   selectedCategory: null,
+  showAllProducts: false,
   loading: false,
   error: null,
   
@@ -53,6 +59,9 @@ const initialState = {
   // User preferences
   favorites: [],
   recentlyViewed: [],
+  
+  // Notifications
+  notifications: [],
   
   // Initialization flag
   isInitialized: false,
@@ -134,6 +143,8 @@ const appReducer = (state, action) => {
       return {
         ...state,
         searchTerm: action.payload,
+        showAllProducts: false,
+        selectedCategory: null,
       };
     }
     
@@ -141,6 +152,17 @@ const appReducer = (state, action) => {
       return {
         ...state,
         selectedCategory: action.payload,
+        showAllProducts: false,
+        searchTerm: '',
+      };
+    }
+    
+    case ACTION_TYPES.SET_SHOW_ALL_PRODUCTS: {
+      return {
+        ...state,
+        showAllProducts: action.payload,
+        selectedCategory: null,
+        searchTerm: '',
       };
     }
     
@@ -199,6 +221,25 @@ const appReducer = (state, action) => {
       };
     }
     
+    case ACTION_TYPES.ADD_NOTIFICATION: {
+      const newNotification = {
+        id: Date.now(),
+        ...action.payload,
+      };
+      
+      return {
+        ...state,
+        notifications: [...state.notifications, newNotification],
+      };
+    }
+    
+    case ACTION_TYPES.REMOVE_NOTIFICATION: {
+      return {
+        ...state,
+        notifications: state.notifications.filter(notification => notification.id !== action.payload),
+      };
+    }
+    
     default:
       return state;
   }
@@ -246,7 +287,19 @@ export const AppProvider = ({ children }) => {
   // Memoized actions to prevent re-renders
   const actions = useMemo(() => ({
     // Cart actions
-    addToCart: (product) => dispatch({ type: ACTION_TYPES.ADD_TO_CART, payload: product }),
+    addToCart: (product) => {
+      dispatch({ type: ACTION_TYPES.ADD_TO_CART, payload: product });
+      // Add notification
+      dispatch({ 
+        type: ACTION_TYPES.ADD_NOTIFICATION, 
+        payload: {
+          type: 'success',
+          title: 'Producto agregado',
+          message: `${product.name} se agregó al carrito`,
+          duration: 3000,
+        }
+      });
+    },
     removeFromCart: (productId) => dispatch({ type: ACTION_TYPES.REMOVE_FROM_CART, payload: productId }),
     updateQuantity: (productId, quantity) => dispatch({ type: ACTION_TYPES.UPDATE_QUANTITY, payload: { id: productId, quantity } }),
     clearCart: () => dispatch({ type: ACTION_TYPES.CLEAR_CART }),
@@ -254,6 +307,7 @@ export const AppProvider = ({ children }) => {
     // UI actions
     setSearchTerm: (term) => dispatch({ type: ACTION_TYPES.SET_SEARCH_TERM, payload: term }),
     setSelectedCategory: (category) => dispatch({ type: ACTION_TYPES.SET_SELECTED_CATEGORY, payload: category }),
+    setShowAllProducts: (show) => dispatch({ type: ACTION_TYPES.SET_SHOW_ALL_PRODUCTS, payload: show }),
     setLoading: (loading) => dispatch({ type: ACTION_TYPES.SET_LOADING, payload: loading }),
     setError: (error) => dispatch({ type: ACTION_TYPES.SET_ERROR, payload: error }),
     
@@ -266,6 +320,10 @@ export const AppProvider = ({ children }) => {
     
     // Recently viewed
     addToRecentlyViewed: (productId) => dispatch({ type: ACTION_TYPES.ADD_TO_RECENTLY_VIEWED, payload: productId }),
+    
+    // Notifications
+    addNotification: (notification) => dispatch({ type: ACTION_TYPES.ADD_NOTIFICATION, payload: notification }),
+    removeNotification: (id) => dispatch({ type: ACTION_TYPES.REMOVE_NOTIFICATION, payload: id }),
   }), []); // Empty dependency array because dispatch is stable
   
   // Memoized context value

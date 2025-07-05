@@ -4,7 +4,15 @@ import { useApp } from '../../context';
 import { formatPrice } from '../../utils';
 
 const Cart = ({ isOpen, onClose }) => {
-  const { cart, cartTotal, cartCount, updateQuantity, removeFromCart, clearCart } = useApp();
+  const { 
+    cart, 
+    cartTotal, 
+    cartCount, 
+    updateQuantity, 
+    removeFromCart, 
+    clearCart,
+    addNotification 
+  } = useApp();
   
   const handleUpdateQuantity = (productId, quantity) => {
     updateQuantity(productId, quantity);
@@ -19,8 +27,13 @@ const Cart = ({ isOpen, onClose }) => {
   };
   
   const handleCheckout = () => {
-    // Placeholder for checkout functionality
-    alert('Funcionalidad de checkout próximamente!');
+    // Mostrar notificación elegante de funcionalidad próximamente
+    addNotification({
+      type: 'info',
+      title: 'Funcionalidad próximamente',
+      message: 'El sistema de pagos estará disponible muy pronto. ¡Mantente atento!',
+      duration: 4000,
+    });
   };
   
   if (!isOpen) return null;

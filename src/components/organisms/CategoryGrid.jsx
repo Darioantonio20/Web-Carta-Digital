@@ -33,24 +33,6 @@ const CategoryGrid = ({ onCategorySelect }) => {
           />
         ))}
       </div>
-      
-      {/* Call to action */}
-      <div className="text-center mt-12">
-        <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-8 text-white">
-          <h3 className="text-2xl font-bold mb-4">
-            ¿No encuentras lo que buscas?
-          </h3>
-          <p className="text-emerald-100 mb-6">
-            Usa nuestra búsqueda para encontrar productos específicos o navega por todas nuestras categorías
-          </p>
-          <button
-            onClick={() => handleCategorySelect(null)}
-            className="bg-white text-emerald-600 px-6 py-3 rounded-xl font-semibold hover:bg-emerald-50 transition-colors"
-          >
-            Ver todos los productos
-          </button>
-        </div>
-      </div>
     </div>
   );
 };

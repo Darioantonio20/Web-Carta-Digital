@@ -10,7 +10,8 @@ const Home = ({ onCategorySelect, onProductClick }) => {
     setCategories, 
     setProducts, 
     selectedCategory, 
-    setSelectedCategory,
+    showAllProducts,
+    setShowAllProducts,
     searchTerm 
   } = useApp();
   
@@ -29,11 +30,11 @@ const Home = ({ onCategorySelect, onProductClick }) => {
   };
   
   const handleShowAllProducts = () => {
-    setSelectedCategory(null);
+    setShowAllProducts(true);
   };
   
-  // Show products if category is selected or search term is active
-  const showProducts = selectedCategory || searchTerm;
+  // Show products if category is selected, search term is active, or showing all products
+  const showProducts = selectedCategory || searchTerm || showAllProducts;
   
   return (
     <div className="min-h-screen bg-gray-50">
@@ -64,13 +65,6 @@ const Home = ({ onCategorySelect, onProductClick }) => {
                   className="bg-white text-emerald-600 hover:bg-emerald-50 w-full sm:w-auto text-sm md:text-base px-6 md:px-8"
                 >
                   Ver todos los productos
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  className="text-white border-white hover:bg-white/10 w-full sm:w-auto text-sm md:text-base px-6 md:px-8"
-                >
-                  Conoce más sobre nosotros
                 </Button>
               </div>
             </div>
@@ -175,34 +169,6 @@ const Home = ({ onCategorySelect, onProductClick }) => {
                 className="text-sm md:text-base px-6 md:px-8"
               >
                 Ver todos los productos
-              </Button>
-            </div>
-          </div>
-        </section>
-      )}
-      
-      {/* Newsletter Section */}
-      {!showProducts && (
-        <section className="py-12 md:py-16 bg-gradient-to-r from-emerald-500 to-teal-600">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">
-              ¿Quieres estar al día?
-            </h3>
-            <p className="text-emerald-100 mb-6 md:mb-8 text-sm md:text-base">
-              Suscríbete a nuestro newsletter y recibe las últimas novedades y ofertas especiales
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Tu email"
-                className="flex-1 px-4 py-3 rounded-xl border-0 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:outline-none text-sm md:text-base"
-              />
-              <Button
-                variant="secondary"
-                size="md"
-                className="bg-white text-emerald-600 hover:bg-emerald-50 px-6 text-sm md:text-base"
-              >
-                Suscribirse
               </Button>
             </div>
           </div>
