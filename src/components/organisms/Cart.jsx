@@ -1,7 +1,9 @@
+import React, { useState } from 'react';
 import { Card, Button } from '../atoms';
 import { CartItem } from '../molecules';
 import { useApp } from '../../context';
 import { formatPrice } from '../../utils';
+import CheckoutForm from './CheckoutForm';
 
 const Cart = ({ isOpen, onClose }) => {
   const { 
@@ -13,6 +15,8 @@ const Cart = ({ isOpen, onClose }) => {
     clearCart,
     addNotification 
   } = useApp();
+  
+  const [showCheckoutForm, setShowCheckoutForm] = useState(false);
   
   const handleUpdateQuantity = (productId, quantity) => {
     updateQuantity(productId, quantity);
@@ -27,13 +31,7 @@ const Cart = ({ isOpen, onClose }) => {
   };
   
   const handleCheckout = () => {
-    // Mostrar notificación elegante de funcionalidad próximamente
-    addNotification({
-      type: 'info',
-      title: 'Funcionalidad próximamente',
-      message: 'El sistema de pagos estará disponible muy pronto. ¡Mantente atento!',
-      duration: 4000,
-    });
+    setShowCheckoutForm(true);
   };
   
   if (!isOpen) return null;
@@ -142,6 +140,12 @@ const Cart = ({ isOpen, onClose }) => {
           </div>
         )}
       </div>
+      
+      {/* Checkout Form */}
+      <CheckoutForm 
+        isOpen={showCheckoutForm}
+        onClose={() => setShowCheckoutForm(false)}
+      />
     </div>
   );
 };

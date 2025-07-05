@@ -5,6 +5,13 @@ import { STORAGE_KEYS } from '../constants';
 // Create context
 const AppContext = createContext();
 
+// Views/Pages constants
+export const VIEWS = {
+  HOME: 'HOME',
+  ADMIN_LOGIN: 'ADMIN_LOGIN',
+  ADMIN_DASHBOARD: 'ADMIN_DASHBOARD',
+};
+
 // Action types
 const ACTION_TYPES = {
   // Cart actions
@@ -20,6 +27,9 @@ const ACTION_TYPES = {
   SET_LOADING: 'SET_LOADING',
   SET_ERROR: 'SET_ERROR',
   
+  // Navigation actions
+  SET_CURRENT_VIEW: 'SET_CURRENT_VIEW',
+  
   // Product actions
   SET_PRODUCTS: 'SET_PRODUCTS',
   SET_CATEGORIES: 'SET_CATEGORIES',
@@ -33,6 +43,11 @@ const ACTION_TYPES = {
   // Notifications
   ADD_NOTIFICATION: 'ADD_NOTIFICATION',
   REMOVE_NOTIFICATION: 'REMOVE_NOTIFICATION',
+  
+  // Admin actions
+  SET_ADMIN_LOGGED_IN: 'SET_ADMIN_LOGGED_IN',
+  ADD_ORDER: 'ADD_ORDER',
+  UPDATE_ORDER_STATUS: 'UPDATE_ORDER_STATUS',
   
   // Initialize from localStorage
   INITIALIZE_FROM_STORAGE: 'INITIALIZE_FROM_STORAGE',
@@ -52,6 +67,9 @@ const initialState = {
   loading: false,
   error: null,
   
+  // Navigation state
+  currentView: VIEWS.HOME,
+  
   // Data state
   products: [],
   categories: [],
@@ -62,6 +80,10 @@ const initialState = {
   
   // Notifications
   notifications: [],
+  
+  // Admin state
+  isAdminLoggedIn: false,
+  orders: [],
   
   // Initialization flag
   isInitialized: false,
@@ -180,6 +202,13 @@ const appReducer = (state, action) => {
       };
     }
     
+    case ACTION_TYPES.SET_CURRENT_VIEW: {
+      return {
+        ...state,
+        currentView: action.payload,
+      };
+    }
+    
     case ACTION_TYPES.SET_PRODUCTS: {
       return {
         ...state,
@@ -237,6 +266,38 @@ const appReducer = (state, action) => {
       return {
         ...state,
         notifications: state.notifications.filter(notification => notification.id !== action.payload),
+      };
+    }
+    
+    case ACTION_TYPES.SET_ADMIN_LOGGED_IN: {
+      return {
+        ...state,
+        isAdminLoggedIn: action.payload,
+      };
+    }
+    
+    case ACTION_TYPES.ADD_ORDER: {
+      const newOrder = {
+        id: Date.now(),
+        ...action.payload,
+      };
+      
+      return {
+        ...state,
+        orders: [...state.orders, newOrder],
+      };
+    }
+    
+    case ACTION_TYPES.UPDATE_ORDER_STATUS: {
+      const newOrders = state.orders.map(order =>
+        order.id === action.payload.id
+          ? { ...order, status: action.payload.status }
+          : order
+      );
+      
+      return {
+        ...state,
+        orders: newOrders,
       };
     }
     
@@ -311,6 +372,9 @@ export const AppProvider = ({ children }) => {
     setLoading: (loading) => dispatch({ type: ACTION_TYPES.SET_LOADING, payload: loading }),
     setError: (error) => dispatch({ type: ACTION_TYPES.SET_ERROR, payload: error }),
     
+    // Navigation actions
+    navigateToView: (view) => dispatch({ type: ACTION_TYPES.SET_CURRENT_VIEW, payload: view }),
+    
     // Product actions
     setProducts: (products) => dispatch({ type: ACTION_TYPES.SET_PRODUCTS, payload: products }),
     setCategories: (categories) => dispatch({ type: ACTION_TYPES.SET_CATEGORIES, payload: categories }),
@@ -324,6 +388,11 @@ export const AppProvider = ({ children }) => {
     // Notifications
     addNotification: (notification) => dispatch({ type: ACTION_TYPES.ADD_NOTIFICATION, payload: notification }),
     removeNotification: (id) => dispatch({ type: ACTION_TYPES.REMOVE_NOTIFICATION, payload: id }),
+    
+    // Admin actions
+    setAdminLoggedIn: (isLoggedIn) => dispatch({ type: ACTION_TYPES.SET_ADMIN_LOGGED_IN, payload: isLoggedIn }),
+    addOrder: (order) => dispatch({ type: ACTION_TYPES.ADD_ORDER, payload: order }),
+    updateOrderStatus: (id, status) => dispatch({ type: ACTION_TYPES.UPDATE_ORDER_STATUS, payload: { id, status } }),
   }), []); // Empty dependency array because dispatch is stable
   
   // Memoized context value

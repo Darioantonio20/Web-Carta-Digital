@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Button, Badge } from '../atoms';
 import { SearchBar } from '../molecules';
-import { useApp } from '../../context';
+import { useApp, VIEWS } from '../../context';
 import { APP_NAME } from '../../constants';
 
 const Header = ({ onCartClick, onMenuClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { cartCount, setSearchTerm, selectedCategory, setSelectedCategory } = useApp();
+  const { cartCount, setSearchTerm, selectedCategory, setSelectedCategory, isAdminLoggedIn, navigateToView } = useApp();
   
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -20,6 +20,14 @@ const Header = ({ onCartClick, onMenuClick }) => {
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
     setIsMenuOpen(false);
+  };
+  
+  const handleAdminClick = () => {
+    if (isAdminLoggedIn) {
+      navigateToView(VIEWS.ADMIN_DASHBOARD);
+    } else {
+      navigateToView(VIEWS.ADMIN_LOGIN);
+    }
   };
   
   const categories = [
@@ -55,6 +63,20 @@ const Header = ({ onCartClick, onMenuClick }) => {
           
           {/* Actions */}
           <div className="flex items-center space-x-2 md:space-x-3">
+            {/* Admin Button */}
+            <Button
+              variant={isAdminLoggedIn ? "primary" : "secondary"}
+              size="md"
+              onClick={handleAdminClick}
+              className="relative p-2 md:p-3"
+              title={isAdminLoggedIn ? "Panel de Administración" : "Iniciar sesión como administrador"}
+            >
+              <span className="text-lg md:text-xl">🛡️</span>
+              {isAdminLoggedIn && (
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full"></div>
+              )}
+            </Button>
+            
             {/* Cart Button */}
             <Button
               variant="secondary"
