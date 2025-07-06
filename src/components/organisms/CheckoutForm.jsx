@@ -110,7 +110,7 @@ const CheckoutForm = ({ isOpen, onClose }) => {
             </div>
             <div className="border-t pt-2 flex justify-between items-center">
               <span className="text-lg font-semibold text-gray-900">Total:</span>
-              <span className="text-xl font-bold text-blue-600">{formatPrice(cartTotal)}</span>
+              <span className="text-xl font-bold text-blue-900">{formatPrice(cartTotal)}</span>
             </div>
           </div>
 
@@ -164,7 +164,7 @@ const CheckoutForm = ({ isOpen, onClose }) => {
                 onChange={handleInputChange}
                 placeholder="Instrucciones especiales, referencias, alergias, etc."
                 rows={2}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent"
               />
             </div>
 

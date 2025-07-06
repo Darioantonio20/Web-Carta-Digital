@@ -47,7 +47,7 @@ const Header = ({ onCartClick, onMenuClick }) => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2 md:space-x-3">
-            <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-[#1A203D] to-yellow-600 rounded-xl flex items-center justify-center flex-shrink-0">
               <span className="text-white font-bold text-sm md:text-lg">🍽️</span>
             </div>
             <div className="hidden sm:block">
@@ -73,7 +73,7 @@ const Header = ({ onCartClick, onMenuClick }) => {
             >
               <span className="text-lg md:text-xl">🛡️</span>
               {isAdminLoggedIn && (
-                <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full"></div>
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#1A203D] rounded-full"></div>
               )}
             </Button>
             

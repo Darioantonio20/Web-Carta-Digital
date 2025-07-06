@@ -15,13 +15,13 @@ const Button = forwardRef(({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95';
   
   const variants = {
-    primary: 'bg-emerald-600 text-white hover:bg-emerald-700 focus:ring-emerald-500 shadow-lg hover:shadow-xl',
-    secondary: 'bg-white text-emerald-600 border-2 border-emerald-600 hover:bg-emerald-50 focus:ring-emerald-500',
+    primary: 'bg-blue-800 text-white hover:bg-blue-800 focus:ring-blue-500 shadow-lg hover:shadow-xl',
+    secondary: 'bg-white text-blue-800 border-2 border-blue-800 hover:bg-blue-50 focus:ring-blue-500',
     tertiary: 'bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500',
-    success: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 shadow-lg hover:shadow-xl',
+    success: 'bg-blue-800 text-white hover:bg-blue-800 focus:ring-blue-500 shadow-lg hover:shadow-xl',
     danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-lg hover:shadow-xl',
     ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
-    gradient: 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white hover:from-emerald-600 hover:to-teal-700 shadow-lg hover:shadow-xl'
+    gradient: 'bg-gradient-to-r from-blue-500 to-yellow-600 text-white hover:from-blue-800 hover:to-yellow-700 shadow-lg hover:shadow-xl'
   };
   
   const sizes = {

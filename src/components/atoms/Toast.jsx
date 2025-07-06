@@ -38,11 +38,11 @@ const Toast = ({
 
   const variants = {
     success: {
-      bg: 'bg-emerald-50 border-emerald-200',
-      text: 'text-emerald-800',
-      title: 'text-emerald-900',
+      bg: 'bg-blue-50 border-blue-700',
+      text: 'text-blue-800',
+      title: 'text-blue-900',
       icon: '✅',
-      iconBg: 'bg-emerald-500',
+      iconBg: 'bg-blue-800',
     },
     error: {
       bg: 'bg-red-50 border-red-200',
@@ -59,11 +59,11 @@ const Toast = ({
       iconBg: 'bg-yellow-500',
     },
     info: {
-      bg: 'bg-blue-50 border-blue-200',
+      bg: 'bg-blue-50 border-blue-700',
       text: 'text-blue-800',
       title: 'text-blue-900',
       icon: 'ℹ️',
-      iconBg: 'bg-blue-500',
+      iconBg: 'bg-blue-800',
     },
   };
 

@@ -46,9 +46,9 @@ const AdminDashboard = () => {
       case 'pending':
         return 'bg-orange-100 text-orange-800';
       case 'preparing':
-        return 'bg-blue-100 text-blue-800';
+        return 'bg-[#1A203D]/10 text-[#1A203D]';
       case 'ready':
-        return 'bg-green-100 text-green-800';
+        return 'bg-[#1A203D]/10 text-[#1A203D]';
       default:
         return 'bg-gray-100 text-gray-800';
     }
@@ -68,7 +68,7 @@ const AdminDashboard = () => {
               </div>
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
-              <div className="text-center bg-blue-100 text-blue-800 px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium">
+              <div className="text-center bg-[#1A203D]/10 text-[#1A203D] px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium">
                 {orders.length} {orders.length === 1 ? 'pedido' : 'pedidos'}
               </div>
               <Button
@@ -133,11 +133,11 @@ const AdminDashboard = () => {
 
                 {/* Order Content */}
                 <div className="p-4 sm:p-6">
-                                    {/* Customer Info - Enhanced UI/UX */}
+                  {/* Customer Info - Enhanced UI/UX */}
                   <div className="mb-6 sm:mb-8">
-                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 sm:p-6 border border-blue-100 shadow-sm">
+                    <div className="bg-gradient-to-r from-[#1A203D]/5 to-[#1A203D]/10 rounded-xl p-4 sm:p-6 border border-[#1A203D]/20 shadow-sm">
                       <div className="flex items-center mb-3 sm:mb-4">
-                        <div className="bg-blue-500 rounded-full p-1.5 sm:p-2 mr-2 sm:mr-3">
+                        <div className="bg-[#1A203D] rounded-full p-1.5 sm:p-2 mr-2 sm:mr-3">
                           <span className="text-white text-sm sm:text-lg">👤</span>
                         </div>
                         <h3 className="text-lg sm:text-xl font-bold text-gray-800">Información del Cliente</h3>
@@ -145,10 +145,10 @@ const AdminDashboard = () => {
                       
                       <div className="grid grid-cols-1 gap-4 sm:gap-6">
                         {/* Nombre */}
-                        <div className="bg-white rounded-lg p-3 sm:p-4 shadow-sm border border-blue-100">
+                        <div className="bg-white rounded-lg p-3 sm:p-4 shadow-sm border border-[#1A203D]/20">
                           <div className="flex items-center mb-2">
-                            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2 sm:mr-3">
-                              <span className="text-blue-600 text-xs sm:text-sm font-bold">N</span>
+                            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-[#1A203D]/10 rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                              <span className="text-[#1A203D] text-xs sm:text-sm font-bold">N</span>
                             </div>
                             <span className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wide">Nombre Completo</span>
                           </div>
@@ -156,15 +156,15 @@ const AdminDashboard = () => {
                         </div>
 
                         {/* Teléfono */}
-                        <div className="bg-white rounded-lg p-3 sm:p-4 shadow-sm border border-blue-100">
+                        <div className="bg-white rounded-lg p-3 sm:p-4 shadow-sm border border-[#1A203D]/20">
                           <div className="flex items-center mb-2">
-                            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-100 rounded-full flex items-center justify-center mr-2 sm:mr-3">
-                              <span className="text-green-600 text-xs sm:text-sm">📞</span>
+                            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-[#1A203D]/10 rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                              <span className="text-[#1A203D] text-xs sm:text-sm">📞</span>
                             </div>
                             <span className="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wide">Teléfono de Contacto</span>
                           </div>
                           <p className="text-sm sm:text-lg font-semibold text-gray-800 ml-8 sm:ml-11">
-                            <a href={`tel:${order.customerInfo.phone}`} className="text-blue-600 hover:text-blue-800 transition-colors">
+                            <a href={`tel:${order.customerInfo.phone}`} className="text-[#1A203D] hover:text-[#2D3748] transition-colors">
                               {order.customerInfo.phone}
                             </a>
                           </p>
@@ -219,7 +219,7 @@ const AdminDashboard = () => {
                                   <h4 className="font-bold text-gray-900 text-sm sm:text-lg">{item.name}</h4>
                                   <p className="text-xs sm:text-sm text-gray-600 mb-2 line-clamp-2">{item.description}</p>
                                   <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                                    <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">
+                                    <span className="bg-[#1A203D]/10 text-[#1A203D] px-2 py-1 rounded-full text-xs font-medium">
                                       Cantidad: {item.quantity}
                                     </span>
                                     <span className="text-xs sm:text-sm text-gray-500">
@@ -242,20 +242,20 @@ const AdminDashboard = () => {
                   </div>
 
                   {/* Order Total - Enhanced */}
-                  <div className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg">
+                  <div className="bg-gradient-to-r from-[#1A203D] to-yellow-600 text-white rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
                       <div className="flex items-center space-x-3">
                         <div className="bg-white bg-opacity-20 rounded-full p-1.5 sm:p-2">
                           <span className="text-white text-lg sm:text-xl">💰</span>
                         </div>
                         <div>
-                          <span className="text-emerald-100 text-xs sm:text-sm font-medium uppercase tracking-wide">Total del Pedido</span>
+                          <span className="text-white text-xs sm:text-sm font-medium uppercase tracking-wide">Total del Pedido</span>
                           <p className="text-white text-xl sm:text-2xl font-bold">{formatPrice(order.total)}</p>
                         </div>
                       </div>
                       <div className="text-center">
                         <div className="bg-black bg-opacity-20 rounded-lg px-3 py-1.5 sm:px-4 sm:py-2">
-                          <span className="text-emerald-100 text-xs sm:text-sm font-medium block">Estado</span>
+                          <span className="text-yellow-200 text-xs sm:text-sm font-medium block">Estado</span>
                           <span className="text-white text-sm sm:text-base font-bold">{getStatusText(order.status)}</span>
                         </div>
                       </div>
@@ -263,7 +263,7 @@ const AdminDashboard = () => {
                   </div>
 
                   {/* Status Actions */}
-                  <div className="bg-gray-50 rounded-lg p-3 sm:p-4 border-t-4 border-blue-500">
+                  <div className="bg-gray-50 rounded-lg p-3 sm:p-4 border-t-4 border-[#1A203D]">
                     <h4 className="text-xs sm:text-sm font-medium text-gray-700 mb-3 uppercase tracking-wide">Acciones del Pedido</h4>
                     <div className="flex flex-wrap gap-2 sm:gap-3">
                       {order.status === 'pending' && (
@@ -289,11 +289,11 @@ const AdminDashboard = () => {
                         </Button>
                       )}
                       {order.status === 'ready' && (
-                        <div className="flex items-center space-x-2 sm:space-x-3 bg-green-100 px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-green-300">
-                          <span className="text-green-600 text-lg sm:text-xl">✅</span>
+                        <div className="flex items-center space-x-2 sm:space-x-3 bg-[#1A203D]/10 px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-[#1A203D]/30">
+                          <span className="text-[#1A203D] text-lg sm:text-xl">✅</span>
                           <div>
-                            <span className="font-semibold text-green-800 block text-sm sm:text-base">Pedido Listo para Entregar</span>
-                            <span className="text-xs sm:text-sm text-green-600">El cliente puede recoger su pedido</span>
+                            <span className="font-semibold text-[#1A203D] block text-sm sm:text-base">Pedido Listo para Entregar</span>
+                            <span className="text-xs sm:text-sm text-[#1A203D]/70">El cliente puede recoger su pedido</span>
                           </div>
                         </div>
                       )}

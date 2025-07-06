@@ -4,10 +4,10 @@ export const APP_DESCRIPTION = 'Tu carta digital favorita';
 
 // Theme colors
 export const COLORS = {
-  primary: '#059669', // emerald-600
-  secondary: '#0d9488', // teal-600
+  primary: '#059669', // blue-600
+  secondary: '#0d9488', // yellow-600
   accent: '#f59e0b', // amber-500
-  success: '#10b981', // emerald-500
+  success: '#10b981', // blue-500
   warning: '#f59e0b', // amber-500
   error: '#ef4444', // red-500
   neutral: '#6b7280', // gray-500

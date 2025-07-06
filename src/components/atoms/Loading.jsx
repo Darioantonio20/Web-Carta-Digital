@@ -15,8 +15,8 @@ const Loading = forwardRef(({
   };
   
   const colors = {
-    primary: 'text-emerald-600',
-    secondary: 'text-teal-600',
+    primary: 'text-blue-800',
+    secondary: 'text-yellow-600',
     gray: 'text-gray-600',
     white: 'text-white',
   };

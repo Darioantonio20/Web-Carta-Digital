@@ -37,11 +37,11 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#1A203D]/5 to-[#1A203D]/15 flex items-center justify-center p-4">
       <div className="max-w-md w-full space-y-8">
         {/* Header */}
         <div className="text-center">
-          <div className="mx-auto h-20 w-20 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+          <div className="mx-auto h-20 w-20 bg-[#1A203D] rounded-full flex items-center justify-center mb-6">
             <span className="text-4xl">🛡️</span>
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-2">
@@ -105,8 +105,8 @@ const AdminLogin = () => {
             </Button>
           </form>
 
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-            <p className="text-sm text-blue-800 text-center">
+          <div className="mt-6 p-4 bg-[#1A203D]/5 rounded-lg">
+            <p className="text-sm text-[#1A203D] text-center">
               <span className="font-medium">Modo Demo:</span> Ingresa cualquier email y contraseña para acceder
             </p>
           </div>
@@ -118,7 +118,7 @@ const AdminLogin = () => {
             onClick={handleBackToHome}
             variant="ghost"
             size="md"
-            className="text-blue-600 hover:text-blue-800"
+            className="text-[#1A203D] hover:text-[#2D3748]"
           >
             <span className="text-lg mr-2">🏠</span>
             Volver al Inicio

@@ -11,13 +11,13 @@ const Badge = forwardRef(({
   
   const variants = {
     default: 'bg-gray-100 text-gray-800',
-    primary: 'bg-emerald-100 text-emerald-800',
-    secondary: 'bg-teal-100 text-teal-800',
-    success: 'bg-green-100 text-green-800',
+    primary: 'bg-blue-100 text-blue-800',
+    secondary: 'bg-yellow-100 text-yellow-800',
+    success: 'bg-blue-100 text-blue-800',
     warning: 'bg-yellow-100 text-yellow-800',
     danger: 'bg-red-100 text-red-800',
     info: 'bg-blue-100 text-blue-800',
-    gradient: 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white',
+    gradient: 'bg-gradient-to-r from-blue-500 to-yellow-600 text-white',
   };
   
   const sizes = {

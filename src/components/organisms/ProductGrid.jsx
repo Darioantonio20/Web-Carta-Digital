@@ -123,7 +123,7 @@ const ProductGrid = ({ onProductClick, sortBy = 'featured' }) => {
               <p className="text-gray-600 mb-4 text-sm md:text-base">
                 Explora más categorías o ajusta tu búsqueda
               </p>
-              <button className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-sm md:text-base">
+              <button className="px-6 py-3 bg-gradient-to-r from-[#1A203D] to-yellow-600 text-white rounded-xl hover:from-[#2D3748] hover:to-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-sm md:text-base">
                 Explorar más categorías
               </button>
             </div>
@@ -134,7 +134,7 @@ const ProductGrid = ({ onProductClick, sortBy = 'featured' }) => {
         <div className="fixed bottom-6 right-6 md:hidden z-40">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="w-12 h-12 bg-emerald-600 text-white rounded-full shadow-lg hover:bg-emerald-700 transition-colors flex items-center justify-center"
+            className="w-12 h-12 bg-[#1A203D] text-white rounded-full shadow-lg hover:bg-[#2D3748] transition-colors flex items-center justify-center"
           >
             ↑
           </button>

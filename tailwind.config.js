@@ -19,7 +19,7 @@ export default {
             800: '#115e59',
             900: '#134e4a',
           },
-          emerald: {
+          blue: {
             50: '#ecfdf5',
             100: '#d1fae5',
             200: '#a7f3d0',

@@ -26,7 +26,7 @@ const Input = forwardRef(({
   
   const stateClasses = error
     ? 'border-red-300 focus:border-red-500 focus:ring-red-500'
-    : 'border-gray-300 focus:border-emerald-500 focus:ring-emerald-500';
+    : 'border-gray-300 focus:border-blue-800 focus:ring-blue-900';
   
   const inputClasses = `
     ${baseClasses}

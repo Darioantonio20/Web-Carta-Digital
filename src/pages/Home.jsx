@@ -40,7 +40,7 @@ const Home = ({ onCategorySelect, onProductClick }) => {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       {!showProducts && (
-        <section className="bg-gradient-to-br from-emerald-500 via-teal-600 to-cyan-600 text-white relative overflow-hidden">
+        <section className="bg-gradient-to-br from-yellow-500 via-yellow-600 to-yellow-600 text-white relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="absolute -top-10 -right-10 w-32 h-32 md:w-48 md:h-48 bg-white/10 rounded-full"></div>
@@ -54,7 +54,7 @@ const Home = ({ onCategorySelect, onProductClick }) => {
                   Carta Digital
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 text-emerald-100 animate-fadeIn animation-delay-200 max-w-3xl mx-auto px-4">
+              <p className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 text-yellow-100 animate-fadeIn animation-delay-200 max-w-3xl mx-auto px-4">
                 Descubre sabores únicos y productos de calidad premium seleccionados especialmente para ti
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center animate-fadeIn animation-delay-400 px-4">
@@ -62,7 +62,7 @@ const Home = ({ onCategorySelect, onProductClick }) => {
                   variant="secondary"
                   size="lg"
                   onClick={handleShowAllProducts}
-                  className="bg-white text-emerald-600 hover:bg-emerald-50 w-full sm:w-auto text-sm md:text-base px-6 md:px-8"
+                  className="bg-white text-yellow-600 hover:bg-yellow-50 w-full sm:w-auto text-sm md:text-base px-6 md:px-8"
                 >
                   Ver todos los productos
                 </Button>
@@ -84,7 +84,7 @@ const Home = ({ onCategorySelect, onProductClick }) => {
                 { value: '4.8★', label: 'Calificación', delay: 300 }
               ].map((stat, index) => (
                 <div key={index} className="animate-fadeIn p-4" style={{ animationDelay: `${stat.delay}ms` }}>
-                  <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-emerald-600 mb-1 md:mb-2">
+                  <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-600 mb-1 md:mb-2">
                     {stat.value}
                   </div>
                   <div className="text-xs md:text-sm lg:text-base text-gray-600 font-medium">
@@ -117,7 +117,7 @@ const Home = ({ onCategorySelect, onProductClick }) => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
-                Productos <span className="text-emerald-600">destacados</span>
+                Productos <span className="text-yellow-600">destacados</span>
               </h2>
               <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
                 Prueba nuestros productos más populares y mejor valorados por nuestros clientes
@@ -141,7 +141,7 @@ const Home = ({ onCategorySelect, onProductClick }) => {
                         alt={product.name}
                         className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl mx-auto group-hover:scale-105 transition-transform duration-300"
                       />
-                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
+                      <div className="absolute -top-1 -right-1 w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
                         <span className="text-white text-xs">★</span>
                       </div>
                     </div>
@@ -151,7 +151,7 @@ const Home = ({ onCategorySelect, onProductClick }) => {
                     <p className="text-xs md:text-sm text-gray-600 mb-3 line-clamp-2">
                       {product.description}
                     </p>
-                    <div className="text-base md:text-lg font-bold text-emerald-600">
+                    <div className="text-base md:text-lg font-bold text-yellow-600">
                       {formatPrice(product.price)}
                     </div>
                     <div className="mt-2 text-xs text-gray-500">
